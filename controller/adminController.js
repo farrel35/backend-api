@@ -588,7 +588,8 @@ const deleteTransactionHistory = async (id_order) => {
 
 const getOrder = async (req, res) => {
   try {
-    const sql = "SELECT * FROM tbl_transaction ORDER BY status_bayar DESC";
+    const sql =
+      "SELECT * FROM tbl_transaction ORDER BY order_date DESC LIMIT 1";
     const [rows, fields] = await db.query(sql);
     res.json({
       payload: rows,
