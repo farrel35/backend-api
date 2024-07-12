@@ -85,7 +85,7 @@ const getOrder = async (req, res) => {
 
   try {
     const sql =
-      "SELECT * FROM tbl_transaction WHERE id_user = ? ORDER BY order_date ASC, status_bayar DESC";
+      "SELECT * FROM tbl_transaction WHERE id_user = ? ORDER BY status_bayar DESC, order_date ASC";
     const [rows, fields] = await db.query(sql, [id_user]);
     res.json({
       payload: rows,
